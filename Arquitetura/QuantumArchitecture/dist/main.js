@@ -1,0 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var Market_1 = require("./models/Market");
+var Product_1 = require("./models/Product");
+var Tend_1 = require("./models/Tend");
+var User_1 = require("./models/User");
+var luan = new User_1.User('Luan', 'de Souza');
+var manga = new Product_1.Product('Manga', 1.5, Product_1.UnitMeansurement.KG);
+var umbu = new Product_1.Product('Umbu', 1.0, Product_1.UnitMeansurement.KG);
+var barraca = new Tend_1.Tend('Barraca Exemplo', 'Parelhas', luan);
+var feira = new Market_1.Market();
+barraca.addProduct(manga);
+barraca.addProduct(umbu);
+console.log('Barraca: ', barraca.show());
+feira.addTend(barraca);
+feira.addTend(barraca);
+console.log('Feira: ', feira.show());
